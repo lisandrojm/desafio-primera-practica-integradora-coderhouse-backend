@@ -18,13 +18,13 @@ Sigue estos pasos para instalar y configurar el proyecto:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/lisandrojm/desafio_clase-integradora
    ```
 
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd <NOMBRE_DEL_DIRECTORIO>
+   cd desafio_clase-integradora
    ```
 
 3. Instala las dependencias del proyecto ejecutando el siguiente comando:
@@ -69,25 +69,3 @@ El proyecto sigue la siguiente estructura de directorios:
 - `models/`: Contiene los modelos de datos utilizados en la aplicación, incluyendo el modelo para la colección "messages".
 - `controllers/`: Contiene los controladores de la aplicación, que manejan la lógica de negocio y las interacciones entre las rutas y los modelos de datos.
 - `app.js`: Archivo principal de la aplicación que configura y ejecuta el servidor Node.js.
-
-## Contribución
-
-Si deseas contribuir a este proyecto, sigue estos pasos:
-
-1. Realiza un fork de este repositorio.
-2. Crea una nueva rama en tu repositorio local:
-
-   ```bash
-   git checkout -b <NOMBRE_DE_LA_RAMA>
-   ```
-
-3. Realiza tus modificaciones y mejoras en la rama creada.
-4. Confirma tus cambios y realiza un push a tu repositorio:
-
-   ```bash
-   git add .
-   git commit -m "Descripción de los cambios"
-   git push origin <NOMBRE_DE_LA_RAMA>
-   ```
-
-5. Abre un pull request en
