@@ -21,9 +21,9 @@ class MessagesController {
   };
   deleteUserMessage = async (req, res, next) => {
     /* Obtener el ID del producto de los parámetros de la solicitud */
-    const { pid } = req.params;
+    const { mid } = req.params;
     /* Llamar al método deleteProduct de ProductsServices */
-    await MessagesServices.deleteUserMessage(pid, res, req);
+    await MessagesServices.deleteUserMessage(mid, res, req);
   };
 }
 

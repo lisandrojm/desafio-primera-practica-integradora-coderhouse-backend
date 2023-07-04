@@ -24,7 +24,7 @@ class MessagesServices {
       /* Emitir un evento de 'newMessage' a través de socket.io */
       /* req.app.io.emit('newMessage', newMessage); */
       /* Devolver una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Mensaje agregado correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Mensaje agregado correctamente', payload: newMessage });
     } catch (error) {
       /* Devolver una respuesta de error en caso de producirse un error al agregar el mensaje */
       throw new Error('Error al agregar el mensaje');
@@ -42,10 +42,10 @@ class MessagesServices {
       return res.status(500).json({ status: 'error', error: 'Error al obtener los mensajes' });
     }
   };
-  deleteUserMessage = async (pid, res, req) => {
+  deleteUserMessage = async (mid, res, req) => {
     try {
       /* Buscar el producto por su ID y eliminarlo */
-      const deletedMessage = await Message.findByIdAndDelete(pid);
+      const deletedMessage = await Message.findByIdAndDelete(mid);
 
       if (!deletedMessage) {
         /* Enviar una respuesta de error si el producto no se encuentra */
@@ -55,7 +55,7 @@ class MessagesServices {
       /* Emitir un evento de 'deleteMessage' a través de socket.io */
       /* req.app.io.emit('deleteMessage', pid); */
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Mensaje eliminado correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Mensaje eliminado correctamente', payload: deletedMessage });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al eliminar el mensaje */
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el mensaje' });

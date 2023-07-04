@@ -65,7 +65,7 @@ class ProductsServices {
       /* Emitir un evento de 'newProduct' a través de socket.io */
       req.app.io.emit('newProduct', newProduct);
       /* Eviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(201).json({ status: 'success', message: 'Producto agregado correctamente' });
+      return res.status(201).json({ status: 'success', message: 'Producto agregado correctamente', payload: newProduct });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al agregar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al agregar el producto' });
@@ -115,7 +115,7 @@ class ProductsServices {
       /* Emitir un evento de 'updateProduct' a través de socket.io */
       req.app.io.emit('updateProduct', updatedProduct);
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto actualizado correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Producto actualizado correctamente', payload: updatedProduct });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al actualizar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al actualizar el producto' });
@@ -136,7 +136,7 @@ class ProductsServices {
       /* Emitir un evento de 'deleteProduct' a través de socket.io */
       req.app.io.emit('deleteProduct', pid);
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto eliminado correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Producto eliminado correctamente', payload: deletedProduct });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al eliminar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el producto' });

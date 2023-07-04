@@ -19,5 +19,5 @@ module.exports = (app) => {
   /* Definir las rutas y asignar los controladores correspondientes */
   router.get('/', messagesController.getAllMessages);
   router.post('/', messagesController.addUserMessage);
-  router.delete('/:pid', messagesController.deleteUserMessage);
+  router.delete('/:mid', messagesController.deleteUserMessage);
 };

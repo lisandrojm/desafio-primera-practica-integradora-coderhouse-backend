@@ -34,7 +34,7 @@ class CartsService {
     try {
       /* Crear un nuevo carrito */
       const newCart = await Cart.create({ products: [] });
-      return res.status(201).json({ status: 'created', message: 'Nuevo carrito creado', cart: newCart });
+      return res.status(201).json({ status: 'created', message: 'Nuevo carrito creado', payload: newCart });
     } catch (error) {
       return res.status(500).json({ status: 'error', error: 'Error al crear el carrito' });
     }
@@ -84,7 +84,7 @@ class CartsService {
 
       /* Guardar los cambios realizados en el carrito */
       await cart.save();
-      return res.status(200).json({ status: 'success', message: 'Producto agregado al carrito correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Producto agregado al carrito correctamente', payload: cart });
     } catch (error) {
       return res.status(500).json({ status: 'error', error: 'Error al agregar el producto al carrito' });
     }
@@ -107,7 +107,7 @@ class CartsService {
       cart.products.splice(productIndex, 1);
       /* Guardar los cambios realizados en el carrito */
       await cart.save();
-      return res.status(200).json({ status: 'success', message: 'Producto eliminado del carrito correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Producto eliminado del carrito correctamente', payload: cart });
     } catch (error) {
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el producto del carrito' });
     }
@@ -123,7 +123,7 @@ class CartsService {
       }
       /* Eliminar el carrito */
       await cart.deleteOne();
-      return res.status(200).json({ status: 'success', message: 'Carrito eliminado correctamente' });
+      return res.status(200).json({ status: 'success', message: 'Carrito eliminado correctamente', payload: cart });
     } catch (error) {
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el carrito' });
     }
