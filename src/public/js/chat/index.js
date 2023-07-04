@@ -45,7 +45,7 @@ function startChat() {
     } else {
       user = name;
       const nameElement = document.getElementById('user-name');
-      nameElement.innerHTML = `<b>Usuario:</b> ${user}`;
+      nameElement.innerHTML = `<b>Usuario conectado:</b> ${user}`;
     }
   });
 }

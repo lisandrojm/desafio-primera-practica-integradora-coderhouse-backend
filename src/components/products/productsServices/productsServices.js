@@ -25,10 +25,10 @@ class ProductsServices {
 
       const data = products;
       /* Enviar una respuesta exitosa con los productos obtenidos */
-      return res.status(200).json({ status: 'success', payload: data });
+      return res.status(200).json({ success: true, payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al obtener los productos */
-      return res.status(500).json({ status: 'error', error: 'Error al obtener los productos' });
+      return res.status(500).json({ success: false, error: 'Error al obtener los productos' });
     }
   };
 
@@ -39,7 +39,7 @@ class ProductsServices {
 
       if (!title || !description || !code || !price || !stock || !category) {
         /* Enviar una respuesta de error si faltan campos obligatorios */
-        return res.status(500).json({ status: 'error', error: 'Faltan campos obligatorios' });
+        return res.status(500).json({ success: false, error: 'Faltan campos obligatorios' });
       }
 
       /* Verificar si ya existe un producto con el mismo código */
@@ -47,7 +47,7 @@ class ProductsServices {
 
       if (existingProduct) {
         /* Enviar una respuesta de error si ya existe un producto con el mismo código */
-        return res.status(400).json({ status: 'error', error: 'Ya existe un producto con el mismo código' });
+        return res.status(400).json({ success: false, error: 'Ya existe un producto con el mismo código' });
       }
 
       /* Crear el objeto del nuevo producto */
@@ -68,10 +68,10 @@ class ProductsServices {
 
       const data = newProduct;
       /* Eviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(201).json({ status: 'success', message: 'Producto agregado correctamente', payload: data });
+      return res.status(201).json({ success: true, message: 'Producto agregado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al agregar el producto */
-      return res.status(500).json({ status: 'error', error: 'Error al agregar el producto' });
+      return res.status(500).json({ success: false, error: 'Error al agregar el producto' });
     }
   };
 
@@ -83,15 +83,15 @@ class ProductsServices {
 
       if (!product) {
         /* Enviar una respuesta de error si el producto no se encuentra */
-        return res.status(404).json({ status: 'error', error: 'Producto no encontrado' });
+        return res.status(404).json({ success: false, error: 'Producto no encontrado' });
       }
 
       const data = product;
       /* Enviar una respuesta exitosa con el producto encontrado */
-      return res.status(200).json({ status: 'success', payload: data });
+      return res.status(200).json({ success: true, payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al obtener el producto */
-      return res.status(500).json({ status: 'error', error: 'Error al obtener el producto' });
+      return res.status(500).json({ success: false, error: 'Error al obtener el producto' });
     }
   };
 
@@ -106,7 +106,7 @@ class ProductsServices {
 
       if (invalidFields.length > 0) {
         /* Enviar una respuesta de error si se intenta modificar campos no permitidos */
-        return res.status(400).json({ status: 'error', error: `Los siguientes campos no se pueden modificar: ${invalidFields.join(', ')}` });
+        return res.status(400).json({ success: false, error: `Los siguientes campos no se pueden modificar: ${invalidFields.join(', ')}` });
       }
 
       /* Buscar el producto por su ID y actualizar los campos */
@@ -114,17 +114,17 @@ class ProductsServices {
 
       if (!updatedProduct) {
         /* Enviar una respuesta de error si el producto no se encuentra */
-        return res.status(404).json({ status: 'error', error: 'Producto no encontrado' });
+        return res.status(404).json({ success: false, error: 'Producto no encontrado' });
       }
       /* Emitir un evento de 'updateProduct' a través de socket.io */
       req.app.io.emit('updateProduct', updatedProduct);
 
       const data = updatedProduct;
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto actualizado correctamente', payload: data });
+      return res.status(200).json({ success: true, message: 'Producto actualizado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al actualizar el producto */
-      return res.status(500).json({ status: 'error', error: 'Error al actualizar el producto' });
+      return res.status(500).json({ success: false, error: 'Error al actualizar el producto' });
     }
   };
 
@@ -136,7 +136,7 @@ class ProductsServices {
 
       if (!deletedProduct) {
         /* Enviar una respuesta de error si el producto no se encuentra */
-        return res.status(404).json({ status: 'error', error: 'Producto no encontrado' });
+        return res.status(404).json({ success: false, error: 'Producto no encontrado' });
       }
 
       /* Emitir un evento de 'deleteProduct' a través de socket.io */
@@ -144,10 +144,10 @@ class ProductsServices {
 
       const data = deletedProduct;
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto eliminado correctamente', payload: data });
+      return res.status(200).json({ success: true, message: 'Producto eliminado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al eliminar el producto */
-      return res.status(500).json({ status: 'error', error: 'Error al eliminar el producto' });
+      return res.status(500).json({ success: false, error: 'Error al eliminar el producto' });
     }
   };
 }

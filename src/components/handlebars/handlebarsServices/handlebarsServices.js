@@ -14,9 +14,9 @@ class HandlebarsServices {
       /* Obtener los productos de la colección 'products' */
       const productos = await this.getCollectionData('products');
 
-      return res.status(200).render('home', { title: 'Home', productos, style: 'index.css' });
+      return res.status(200).render('home', { success: true, title: 'Home', productos, style: 'index.css' });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error Handlebars' });
+      return res.status(500).json({ success: false, error: 'Error Handlebars' });
     }
   };
 
@@ -26,19 +26,20 @@ class HandlebarsServices {
       /* Obtener los productos de la colección 'products' */
       const productos = await this.getCollectionData('products');
 
-      return res.status(200).render('realTimeProducts', { title: 'Real Time Products', productos, style: 'index.css' });
+      return res.status(200).render('realTimeProducts', { success: true, title: 'Real Time Products', productos, style: 'index.css' });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error Handlebars' });
+      return res.status(500).json({ success: false, error: 'Error Handlebars' });
     }
   };
+
   getChat = async (res) => {
     try {
       /* Obtener los productos de la colección 'products' */
       const productos = await this.getCollectionData('products');
 
-      return res.status(200).render('chat', { title: 'Chat', productos, style: 'index.css' });
+      return res.status(200).render('chat', { success: true, title: 'Chat', productos, style: 'index.css' });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error Handlebars' });
+      return res.status(500).json({ success: false, error: 'Error Handlebars' });
     }
   };
 

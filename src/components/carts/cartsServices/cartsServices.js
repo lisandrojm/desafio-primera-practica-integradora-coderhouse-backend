@@ -7,7 +7,7 @@ const { Cart } = require('../../../models/carts');
 /* Importar el modelo de producto */
 const { Product } = require('../../../models/products');
 
-/* Definir la clase 'CartsRouter' */
+/* Definir la clase 'CartsService' */
 class CartsService {
   constructor() {
     /* Verificar y crear la colección de carritos si no existe */
@@ -35,9 +35,9 @@ class CartsService {
       /* Crear un nuevo carrito */
       const newCart = await Cart.create({ products: [] });
       const data = newCart;
-      return res.status(201).json({ status: 'created', message: 'Nuevo carrito creado', payload: data });
+      return res.status(201).json({ success: true, message: 'Nuevo carrito creado', payload: data });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error al crear el carrito' });
+      return res.status(500).json({ success: false, error: 'Error al crear el carrito' });
     }
   };
 
@@ -46,12 +46,12 @@ class CartsService {
     try {
       const cart = await Cart.findById(cid).populate('products.productId');
       if (!cart) {
-        return res.status(404).json({ status: 'error', error: 'Carrito no encontrado' });
+        return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
       const data = cart.products;
-      return res.status(200).json({ status: 'success', payload: data });
+      return res.status(200).json({ success: true, payload: data });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error al obtener los productos del carrito' });
+      return res.status(500).json({ success: false, error: 'Error al obtener los productos del carrito' });
     }
   };
 
@@ -61,13 +61,13 @@ class CartsService {
       /* Buscar el carrito por su ID */
       const cart = await Cart.findById(cid);
       if (!cart) {
-        return res.status(404).json({ status: 'error', error: 'Carrito no encontrado' });
+        return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
 
       /* Buscar el producto por su ID */
       const product = await Product.findById(pid);
       if (!product) {
-        return res.status(404).json({ status: 'error', error: 'ID de Producto no encontrado' });
+        return res.status(404).json({ success: false, error: 'ID de Producto no encontrado' });
       }
 
       /* Buscar el índice del producto en el carrito */
@@ -87,9 +87,9 @@ class CartsService {
       /* Guardar los cambios realizados en el carrito */
       await cart.save();
       const data = cart;
-      return res.status(200).json({ status: 'success', message: 'Producto agregado al carrito correctamente', payload: data });
+      return res.status(200).json({ success: true, message: 'Producto agregado al carrito correctamente', payload: data });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error al agregar el producto al carrito' });
+      return res.status(500).json({ success: false, error: 'Error al agregar el producto al carrito' });
     }
   };
 
@@ -99,22 +99,21 @@ class CartsService {
       /* Buscar el carrito por su ID */
       const cart = await Cart.findById(cid);
       if (!cart) {
-        return res.status(404).json({ status: 'error', error: 'Carrito no encontrado' });
+        return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
       /* Buscar el índice del producto en el carrito */
       const productIndex = cart.products.findIndex((p) => p.productId.toString() === pid);
       if (productIndex === -1) {
-        return res.status(404).json({ status: 'error', error: 'Producto no encontrado en el carrito' });
+        return res.status(404).json({ success: false, error: 'Producto no encontrado en el carrito' });
       }
       /* Eliminar el producto del carrito */
       cart.products.splice(productIndex, 1);
       /* Guardar los cambios realizados en el carrito */
       await cart.save();
-      /*       const data = cart; */
       const data = cart;
-      return res.status(200).json({ status: 'success', message: 'Producto eliminado del carrito correctamente', payload: data });
+      return res.status(200).json({ success: true, message: 'Producto eliminado del carrito correctamente', payload: data });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error al eliminar el producto del carrito' });
+      return res.status(500).json({ success: false, error: 'Error al eliminar el producto del carrito' });
     }
   };
 
@@ -124,14 +123,14 @@ class CartsService {
       /* Buscar el carrito por su ID */
       const cart = await Cart.findById(cid);
       if (!cart) {
-        return res.status(404).json({ status: 'error', error: 'Carrito no encontrado' });
+        return res.status(404).json({ success: false, error: 'Carrito no encontrado' });
       }
       /* Eliminar el carrito */
       await cart.deleteOne();
       const data = cart;
-      return res.status(200).json({ status: 'success', message: 'Carrito eliminado correctamente', payload: data });
+      return res.status(200).json({ success: true, message: 'Carrito eliminado correctamente', payload: data });
     } catch (error) {
-      return res.status(500).json({ status: 'error', error: 'Error al eliminar el carrito' });
+      return res.status(500).json({ success: false, error: 'Error al eliminar el carrito' });
     }
   };
 }
