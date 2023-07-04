@@ -15,7 +15,7 @@ class CartsController {
   /* Obtener los productos de un carrito por su ID */
   getCartProductById = async (req, res, next) => {
     const { cid } = req.params;
-    await cartsService.getCartProductsById(cid, res);
+    await cartsService.getCartProductById(cid, res);
   };
 
   /* Agregar un producto a un carrito */

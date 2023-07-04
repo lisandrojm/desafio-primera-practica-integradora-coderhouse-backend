@@ -23,8 +23,9 @@ class ProductsServices {
       /* Ejecutar la consulta y obtener los productos */
       const products = await query.exec();
 
+      const data = products;
       /* Enviar una respuesta exitosa con los productos obtenidos */
-      return res.status(200).json({ status: 'success', payload: products });
+      return res.status(200).json({ status: 'success', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al obtener los productos */
       return res.status(500).json({ status: 'error', error: 'Error al obtener los productos' });
@@ -64,8 +65,10 @@ class ProductsServices {
       await newProduct.save();
       /* Emitir un evento de 'newProduct' a través de socket.io */
       req.app.io.emit('newProduct', newProduct);
+
+      const data = newProduct;
       /* Eviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(201).json({ status: 'success', message: 'Producto agregado correctamente', payload: newProduct });
+      return res.status(201).json({ status: 'success', message: 'Producto agregado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al agregar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al agregar el producto' });
@@ -83,8 +86,9 @@ class ProductsServices {
         return res.status(404).json({ status: 'error', error: 'Producto no encontrado' });
       }
 
+      const data = product;
       /* Enviar una respuesta exitosa con el producto encontrado */
-      return res.status(200).json({ status: 'success', payload: product });
+      return res.status(200).json({ status: 'success', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al obtener el producto */
       return res.status(500).json({ status: 'error', error: 'Error al obtener el producto' });
@@ -114,8 +118,10 @@ class ProductsServices {
       }
       /* Emitir un evento de 'updateProduct' a través de socket.io */
       req.app.io.emit('updateProduct', updatedProduct);
+
+      const data = updatedProduct;
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto actualizado correctamente', payload: updatedProduct });
+      return res.status(200).json({ status: 'success', message: 'Producto actualizado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al actualizar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al actualizar el producto' });
@@ -135,8 +141,10 @@ class ProductsServices {
 
       /* Emitir un evento de 'deleteProduct' a través de socket.io */
       req.app.io.emit('deleteProduct', pid);
+
+      const data = deletedProduct;
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Producto eliminado correctamente', payload: deletedProduct });
+      return res.status(200).json({ status: 'success', message: 'Producto eliminado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al eliminar el producto */
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el producto' });

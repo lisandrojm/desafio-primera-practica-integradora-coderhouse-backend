@@ -24,7 +24,8 @@ class MessagesServices {
       /* Emitir un evento de 'newMessage' a través de socket.io */
       /* req.app.io.emit('newMessage', newMessage); */
       /* Devolver una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Mensaje agregado correctamente', payload: newMessage });
+      const data = newMessage;
+      return res.status(200).json({ status: 'success', message: 'Mensaje agregado correctamente', payload: data });
     } catch (error) {
       /* Devolver una respuesta de error en caso de producirse un error al agregar el mensaje */
       throw new Error('Error al agregar el mensaje');
@@ -34,9 +35,9 @@ class MessagesServices {
     try {
       /* Obtener todos los mensajes de la base de datos */
       const messages = await Message.find();
-
+      const data = messages;
       /* Enviar una respuesta exitosa con los mensajes obtenidos */
-      return res.status(200).json({ status: 'success', payload: messages });
+      return res.status(200).json({ status: 'success', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al obtener los mensajes */
       return res.status(500).json({ status: 'error', error: 'Error al obtener los mensajes' });
@@ -54,8 +55,9 @@ class MessagesServices {
 
       /* Emitir un evento de 'deleteMessage' a través de socket.io */
       /* req.app.io.emit('deleteMessage', pid); */
+      const data = deletedMessage;
       /* Enviar una respuesta exitosa con un mensaje de éxito */
-      return res.status(200).json({ status: 'success', message: 'Mensaje eliminado correctamente', payload: deletedMessage });
+      return res.status(200).json({ status: 'success', message: 'Mensaje eliminado correctamente', payload: data });
     } catch (error) {
       /* Enviar una respuesta de error en caso de producirse un error al eliminar el mensaje */
       return res.status(500).json({ status: 'error', error: 'Error al eliminar el mensaje' });
