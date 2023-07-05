@@ -63,9 +63,6 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 El proyecto sigue la siguiente estructura de directorios:
 
-- `views/`: Contiene los archivos de las vistas implementadas en Handlebars, incluyendo `chat.handlebars`.
-- `public/`: Directorio público que almacena archivos estáticos (CSS, JS, imágenes, etc.) utilizados en la aplicación.
-- `routes/`: Contiene las rutas de la aplicación, incluyendo la lógica para guardar los mensajes en la base de datos.
-- `models/`: Contiene los modelos de datos utilizados en la aplicación, incluyendo el modelo para la colección "messages".
-- `controllers/`: Contiene los controladores de la aplicación, que manejan la lógica de negocio y las interacciones entre las rutas y los modelos de datos.
-- `app.js`: Archivo principal de la aplicación que configura y ejecuta el servidor Node.js.
+- `/src`: Contiene el archivo principal de la aplicación (`index.js`) que inicia el servidor y configura las rutas.
+- `/index.js`: Archivo principal de la aplicación.
+  ...
