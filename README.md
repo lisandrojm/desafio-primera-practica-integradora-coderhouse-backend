@@ -1,4 +1,4 @@
-# DESAFÍO ENTREGABLE - Clase integradora - Coderhouse/Backend
+# DESAFÍO ENTREGABLE - Primera práctica integradora - Coderhouse/Backend
 
 # Implementación de vista de chat en Handlebars
 
@@ -26,7 +26,7 @@ Sigue estos pasos para instalar y configurar el proyecto:
 2. Navega al directorio del proyecto:
 
    ```bash
-   cd desafio_clase-integradora
+   cd desafio_primera-practica-integradora
    ```
 
 3. Instala las dependencias del proyecto ejecutando el siguiente comando:
