@@ -1,4 +1,4 @@
-# Desafio_clase-integradora
+# DESAFÍO ENTREGABLE - Clase integradora - Coderhouse/Backend
 
 # Implementación de vista de chat en Handlebars
 
