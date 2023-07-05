@@ -107,3 +107,26 @@ e `/src/views/layouts`: Contiene los archivos de plantillas HTML utilizando el m
 - `/src/views/layouts/chat.handlebars`: Archivo de plantilla HTML para la vista de chat.
 
 - `/.env.example`: Archivo de ejemplo que muestra la estructura y variables de entorno requeridas para la configuración de la aplicación.
+
+## Dependencias
+
+El proyecto utiliza las siguientes dependencias:
+
+- Express.js (v4.18.2): Framework de Node.js para construir aplicaciones web.
+- UUID (v9.0.0): Biblioteca para generar identificadores únicos.
+- Cors (v2.8.5): Middleware para permitir peticiones HTTP entre diferentes dominios.
+- Dotenv (v16.3.1): Carga variables de entorno desde un archivo `.env`.
+- Express-handlebars (v7.0.7): Motor de plantillas para Express.js.
+- MongoDB (v5.6.0): Driver de MongoDB para Node.js.
+- Mongoose (v7.3.1): Modelado de objetos de MongoDB para Node.js.
+- Multer (v1.4.5-lts.1): Middleware para manejar datos de formulario multipart/form-data.
+- Socket.io (v4.6.2): Biblioteca para la comunicación en tiempo real basada en WebSockets.
+- Sweetalert2 (v11.7.12): Biblioteca para mostrar mensajes y alertas personalizadas.
+
+## DevDependencies
+
+El proyecto utiliza las siguientes devDependencies:
+
+- Nodemon (v2.0.22): Utilidad que monitoriza cambios en los archivos y reinicia automáticamente la aplicación.
+
+Estas dependencias pueden ser instaladas ejecutando el comando `npm install` en el directorio del proyecto.
