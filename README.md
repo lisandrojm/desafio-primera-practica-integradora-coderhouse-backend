@@ -61,6 +61,8 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 7. Ahora podrás utilizar la vista de chat en la aplicación.
 
+## Video Test Chat
+
 ## Estructura del proyecto (directorios relevantes para el desafío)
 
 Aquí tienes la estructura del proyecto con descripciones para cada directorio:
