@@ -63,6 +63,10 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 ## Video Test Chat
 
+
+https://github.com/lisandrojm/desafio_clase-integradora/assets/35199683/9c7597c9-be03-48e2-bdc1-b70954fd07a6
+
+
 ## Estructura del proyecto (directorios relevantes para el desafío)
 
 Aquí tienes la estructura del proyecto con descripciones para cada directorio:
