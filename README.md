@@ -63,6 +63,10 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 ## Video Test Chat
 
+
+https://github.com/lisandrojm/desafio_primera-practica-integradora/assets/35199683/a8a1d3f7-b999-40e8-8875-ee5ba5a12667
+
+
 ## Estructura del proyecto (directorios relevantes para el desafío)
 
 Aquí tienes la estructura del proyecto con descripciones para cada directorio:
