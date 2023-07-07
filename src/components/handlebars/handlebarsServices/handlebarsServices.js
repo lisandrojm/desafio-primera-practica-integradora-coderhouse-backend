@@ -34,10 +34,7 @@ class HandlebarsServices {
 
   getChat = async (res) => {
     try {
-      /* Obtener los productos de la colección 'products' */
-      const productos = await this.getCollectionData('products');
-
-      return res.status(200).render('chat', { success: true, title: 'Chat', productos, style: 'index.css' });
+      return res.status(200).render('chat', { success: true, title: 'Chat', style: 'index.css' });
     } catch (error) {
       return res.status(500).json({ success: false, error: 'Error Handlebars' });
     }
