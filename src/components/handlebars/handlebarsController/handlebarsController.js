@@ -16,7 +16,7 @@ class HandlebarsController {
   getRealTimeProducts = async (req, res) => {
     await HandlebarsServices.getRealTimeProducts(res);
   };
-  /* Función para obtener los productos en tiempo real */
+  /* Función para obtener el chat en tiempo real */
   getChat = async (req, res) => {
     await HandlebarsServices.getChat(res);
   };
