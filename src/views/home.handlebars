@@ -2,9 +2,9 @@
 {{!  /src/views/home.handlebars -  HTML con sintaxis de Handlebars   }}
 {{! //////////////////////////////////////////////////////////////// }}
 
-
+<html>
   <head>
-    <title>{{title}}</title>
+    <title>Home</title>
     <link rel='stylesheet' href='css/{{style}}' />
   </head>
   <body>
@@ -27,7 +27,7 @@
           <tbody>
             {{#each productos}}
               <tr>
-                <td>{{_id}}</td>
+                <td>{{id}}</td>
                 <td>{{title}}</td>
                 <td>{{description}}</td>
                 <td>{{code}}</td>
